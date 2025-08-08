@@ -31,3 +31,16 @@ function actualizarListaAmigos() {
         lista.appendChild(amigo);
     }
 }
+
+function sortearAmigo() {
+    if (listaAmigos.length === 0) {
+        alert("La lista de amigos está vacía");
+        return;
+    }
+    let amigoSeleccionado = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    document.getElementById("resultado").innerHTML = "El amigo secreto es: " + amigoSeleccionado;
+
+    // Se limpia la lista de amigos para que se pueda volver a jugar
+    listaAmigos = [];
+    actualizarListaAmigos();
+}
