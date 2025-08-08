@@ -14,10 +14,11 @@ function agregarAmigo(){
     } else {
         // Agregar el amigo a la lista de amigos
         listaAmigos.push(amigo);
-        console.log("Amigo agregado:", amigo);
-        console.log("Lista de amigos:", listaAmigos);
+        // console.log("Amigo agregado:", amigo);
+        // console.log("Lista de amigos:", listaAmigos);
         actualizarListaAmigos();
     }
+    // Limpiar el campo de entrada
     document.getElementById("amigo").value = "";
 }
 
@@ -32,14 +33,16 @@ function actualizarListaAmigos() {
     }
 }
 
+// Función para sortear un amigo
 function sortearAmigo() {
+    // Verificar si la lista de amigos está vacía
     if (listaAmigos.length === 0) {
         alert("La lista de amigos está vacía");
         return;
     }
+    // Seleccionar un amigo al azar
     let amigoSeleccionado = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
     document.getElementById("resultado").innerHTML = "El amigo secreto es: " + amigoSeleccionado;
-
     // Se limpia la lista de amigos para que se pueda volver a jugar
     listaAmigos = [];
     actualizarListaAmigos();
