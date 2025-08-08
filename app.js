@@ -2,7 +2,7 @@
 
 // CREACION DE VARIABLES
 // Lista de amigos
-let listaDeAmigos = [];
+let listaAmigos = [];
 
 // FUNCIONES
 // Agregar amigo
@@ -13,7 +13,21 @@ function agregarAmigo(){
         alert("Por favor, inserte un nombre");
     } else {
         // Agregar el amigo a la lista de amigos
-        listaDeAmigos.push(amigo);
+        listaAmigos.push(amigo);
+        console.log("Amigo agregado:", amigo);
+        console.log("Lista de amigos:", listaAmigos);
+        actualizarListaAmigos();
     }
     document.getElementById("amigo").value = "";
+}
+
+// Mostrar lista de amigos que han sido agregados
+function actualizarListaAmigos() {
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+    for (let i = 0; i < listaAmigos.length; i++) {
+        let amigo = document.createElement("li");
+        amigo.textContent = listaAmigos[i];
+        lista.appendChild(amigo);
+    }
 }
